@@ -16,7 +16,8 @@ window.onload = function() {
   var client = null;
     
   var subscribe_callback = function(message){
-       messagesList.innerHTML += '<li class="sent"><span>Received:</span>' + message.body +
+      message.ack();
+      messagesList.innerHTML += '<li class="sent"><span>Received:</span>' + message.body +
                               '</li>';
   }
 
