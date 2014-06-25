@@ -11,7 +11,7 @@ window.onload = function() {
   var connectBtn = document.getElementById('connect');
 
   var url = "ws://localhost:5775/";
-  var destination = "chat_queue";
+  var subscribe_location = "chat_queue";
   var publish_location = "chat_queue"
   var client = null;
     
@@ -26,7 +26,7 @@ window.onload = function() {
 
     socketStatus.className = 'open'; 
        
-    var subscription = client.subscribe(destination, subscribe_callback);
+    var subscription = client.subscribe(subscribe_location, subscribe_callback);
   };
 
   var error_callback = function(error) {
@@ -51,8 +51,14 @@ window.onload = function() {
   connectBtn.onclick = function(e) {
     e.preventDefault();
 
-      destination = subscribe_input.value;
+      subscribe_location = subscribe_input.value;
       publish_location = publish_input.value;
+
+      if (subscribe_location == "") {
+	alert("Subscribe To field is empty");
+      } else if (publish_location == "") {
+	alert("Publish To field is empty");
+      }
 
       client = Stomp.client(url);
 

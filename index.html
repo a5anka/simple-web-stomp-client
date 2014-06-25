@@ -12,17 +12,14 @@
     <h1>STOMP over WebSockets Demo</h1>
 
     <div id="status">Not Connected</div>
-    <label for="publish_input">Publish to</label>
-    <input type="text" name="publishing_queue" id="publish_input"><br />
-    <label for="subscribe_input">Subscribe to</label>
-    <input type="text" name="subscribed_queue" id="subscribe_input">
-    
-    <button type="button" id="connect">Connect</button>
-
-    <ul id="messages"></ul>
 
     <form id="message-form" action="#" method="post">
-      
+      <label for="publish_input">Publish to</label>
+      <input type="text" name="publishing_queue" id="publish_input" required><br />
+      <label for="subscribe_input">Subscribe to</label>
+      <input type="text" name="subscribed_queue" id="subscribe_input">
+
+      <button type="button" id="connect">Connect</button>
       <textarea id="message" placeholder="Write your message here..." required></textarea>
       <button type="submit">Send Message</button>
       <button type="button" id="close">Close Connection</button>
